@@ -6,8 +6,8 @@
 
 #define TEST_SUITE(name) void test_name()
 #define TEST_CASE(name) void test_name()
-#define RUN_TEST(name) run_test(#name, test_name)
-#define RUN_SUITE(name) run_suite(#name, test_name)
+#define RUN_TEST(name) run_test(#name, test_##name)
+#define RUN_SUITE(name) run_suite(#name, test_##name)
 #define ASSERT_TRUE(condition) if (!(condition)) throw std::runtime_error("Assertion failed: " #condition)
 #define ASSERT_FALSE(condition) if (condition) throw std::runtime_error("Assertion failed: " #condition)
 #define ASSERT_EQUAL(expected, actual) if ((expected) != (actual)) throw std::runtime_error("Assertion failed: " #expected " != " #actual)
