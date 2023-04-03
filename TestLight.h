@@ -4,8 +4,8 @@
 #include <string>
 #include <functional>
 
-#define TEST_SUITE(name) void test_name()
-#define TEST_CASE(name) void test_name()
+#define TEST_SUITE(name) void test_##name()
+#define TEST_CASE(name) void test_##name()
 #define RUN_TEST(name) run_test(#name, test_##name)
 #define RUN_SUITE(name) run_suite(#name, test_##name)
 #define ASSERT_TRUE(condition) if (!(condition)) throw std::runtime_error("Assertion failed: " #condition)
