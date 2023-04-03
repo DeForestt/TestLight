@@ -13,16 +13,14 @@
 #define ASSERT_FALSE(condition) if (condition) throw std::runtime_error("Assertion failed: " #condition)
 #define ASSERT_EQUAL(expected, actual) if ((expected) != (actual)) throw std::runtime_error("Assertion failed: " #expected " != " #actual)
 
-void run_suite(const std::string& suite_name, const std::function<void()>& suite_func) {
-    auto suite_name_copy = suite_name;
-    std::replace(suite_name_copy.begin(), suite_name_copy.end(), '_', ' ');
+void run_suite(std::string& suite_name, const std::function<void()>& suite_func) {
+    std::replace(suite_name.begin(), suite_name.end(), '_', ' ');
     std::cout << "Running test suite: " << suite_name << std::endl;
     suite_func();
 }
 
-void run_test(const std::string& test_name, const std::function<void()>& test_func) {
-    auto test_name_copy = test_name;
-    std::replace(test_name_copy.begin(), test_name_copy.end(), '_', ' ');
+void run_test(std::string& test_name, const std::function<void()>& test_func) {
+    std::replace(test_name.begin(), test_name.end(), '_', ' ');
     try {
         test_func();
         std::cout << "\t[PASSED] " << test_name << std::endl;
