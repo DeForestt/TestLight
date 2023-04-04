@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEST_LIGHT_H
+#define TEST_LIGHT_H
 
 #include <iostream>
 #include <string>
@@ -28,3 +29,5 @@ void run_test(std::string test_name, const std::function<void()>& test_func) {
         std::cerr << "\t[FAILED] " << test_name << " - " << e.what() << std::endl;
     }
 }
+
+#endif
